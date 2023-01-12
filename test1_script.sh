@@ -14,7 +14,7 @@ sample1=$1
 
 
 #bwa mem でfastqアラインメント
-bwa mem ./input/Homo_sapiens_assembly38.fasta ./input/sequence1.fastq ./input/seque
+bwa mem ./input/Homo_sapiens_assembly38.fasta ./input/sequence1.fastq ./input/sequence2.fastq > ${sample1}.sam
 
 #bamファイルのsort
 samtools sort -@4 ${sample1}.sam > ${sample1}.sort.bam
