@@ -11,10 +11,12 @@ set -x
 
 
 sample1=$1
-
-
+read1_fastq=$2
+read2_fastq=$3
+ref_fasta=$4
 #bwa mem でfastqアラインメント
-bwa mem ./input/Homo_sapiens_assembly38.fasta ./input/sequence1.fastq ./input/sequence2.fastq > ${sample1}.sam
+bwa mem ${ref_fasta} ${read1_fastq} ${read2_fastq} > ${sample1}.sam
+
 
 #bamファイルのsort
 samtools sort -@4 ${sample1}.sam > ${sample1}.sort.bam
