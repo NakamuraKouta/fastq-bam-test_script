@@ -25,4 +25,4 @@ samtools sort -@4 ${sample1}.sam > ${sample1}.sort.bam
 samtools index ${sample1}.sort.bam
 
 #Duplicatesリードの除去
-gatk  MarkDuplicates   -I {$sample1}.sort.bam   -M metrics.txt   -O ${sample1}.MarkDup.bam --CREATE_INDEX
+gatk  MarkDuplicates   -I ${sample1}.sort.bam   -M metrics.txt   -O ${sample1}.MarkDup.bam --CREATE_INDEX
