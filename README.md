@@ -8,6 +8,7 @@ The gVCF contains records for all positions with and without mutation detection.
 ・Align fastq with bwa to create a sam file.
  
 >bwa mem -R "@RG\tID:L\tSM:"${sample1}"\tPL:illumina\tLB:lib1\tPU:unit1" -t 16\ 
+
  -M ${ref_fasta}  ${read1_fastq}  ${read2_fastq}  > ${sample1}.sam
  
 ${sample1} : sample name
