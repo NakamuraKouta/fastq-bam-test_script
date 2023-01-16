@@ -20,8 +20,7 @@ ${read1_fastq},{read2_fastq} : Specify the location where the read fastq (ex ./i
 ・Sort the sam file using samtools and create a bam file.
 
 >samtools sort -@4 
->${sample1}.sam 
->> ${sample1}.sort.bam
+>${sample1}.sam  ${sample1}.sort.bam
  
 >samtools index ${sample1}.sort.bam
  
