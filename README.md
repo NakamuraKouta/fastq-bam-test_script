@@ -4,7 +4,7 @@ Three tools are used: bwa, samtools, and gatk.
 The final file created is VCF.
 The gVCF contains records for all positions with and without mutation detection.
 
-<Procedure>
+##Procedure
 ・Align fastq with bwa to create a sam file.
  
 >bwa mem -R "@RG\tID:L\tSM:"${sample1}"\tPL:illumina\tLB:lib1\tPU:unit1" -t 16\ 
