@@ -29,3 +29,11 @@ gatk  MarkDuplicates   -I ${sample1}.sort.bam   -M metrics.txt   -O ${sample1}.M
 
 #HaplotypeCallerの実施
 gatk HaplotypeCaller -R ${ref_fasta} -I ${sample1}MarkDup.bam -O ${sample1}output.g.vcf.gz -ERC GVCF
+
+#vcfに変換
+gatk GenotypeGVCFs 
+　　--variant haplotypecaller1.g.vcf 
+　　--variant haplotypecaller2.g.vcf 
+　　--variant haplotypecaller3.g.vcf 
+　　-R ${ref_fasta} 
+　　-O ${sample1}.haplotypecaller.vcf
