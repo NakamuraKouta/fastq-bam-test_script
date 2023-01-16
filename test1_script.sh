@@ -15,7 +15,7 @@ read1_fastq=$2
 read2_fastq=$3
 ref_fasta=$4
 #bwa mem でfastqアラインメント
-bwa mem ${ref_fasta} ${read1_fastq} ${read2_fastq} > ${sample1}.sam
+bwa mem -R "@RG\tID:L\tSM:"${sample1}"\tPL:illumina\tLB:lib1\tPU:unit1" -t 16\ -M ${ref_fasta} ${read1_fastq} ${read2_fastq} > ${sample1}.sam
 
 
 #bamファイルのsort
@@ -26,3 +26,6 @@ samtools index ${sample1}.sort.bam
 
 #Duplicatesリードの除去
 gatk  MarkDuplicates   -I ${sample1}.sort.bam   -M metrics.txt   -O ${sample1}.MarkDup.bam --CREATE_INDEX
+
+#HaplotypeCallerの実施
+gatk HaplotypeCaller -R ${ref_fasta} -I ${sample1}MarkDup.bam -O ${sample1}output.g.vcf.gz -ERC GVCF
