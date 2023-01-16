@@ -28,8 +28,7 @@ ${read1_fastq},{read2_fastq} : Specify the location where the read fastq (ex ./i
 
 ・Remove duplicates from the bam file using GATK MarkDuplication.
  
->gatk  MarkDuplicates   -I ${sample1}.sort.bam   
->-M metrics.txt   
+>gatk  MarkDuplicates   -I ${sample1}.sort.bam -M metrics.txt   
 >-O ${sample1}.MarkDup.bam --CREATE_INDEX
 
 -I : input file
