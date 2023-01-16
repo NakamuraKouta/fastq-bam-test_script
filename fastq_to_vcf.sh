@@ -28,7 +28,7 @@ samtools index ${sample1}.sort.bam
 gatk  MarkDuplicates   -I ${sample1}.sort.bam   -M metrics.txt   -O ${sample1}.MarkDup.bam --CREATE_INDEX
 
 #HaplotypeCallerの実施
-gatk HaplotypeCaller -R ${ref_fasta} -I ${sample1}MarkDup.bam -O ${sample1}output.g.vcf.gz -ERC GVCF
+gatk HaplotypeCaller -R ${ref_fasta} -I ${sample1}.MarkDup.bam -O ${sample1}.output.g.vcf.gz -ERC GVCF
 
 #vcfに変換
 gatk GenotypeGVCFs 
