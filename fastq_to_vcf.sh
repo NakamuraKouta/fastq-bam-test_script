@@ -32,8 +32,6 @@ gatk HaplotypeCaller -R ${ref_fasta} -I ${sample1}MarkDup.bam -O ${sample1}outpu
 
 #vcfに変換
 gatk GenotypeGVCFs 
-　　--variant haplotypecaller1.g.vcf 
-　　--variant haplotypecaller2.g.vcf 
-　　--variant haplotypecaller3.g.vcf 
+　　--variant ${sample1}.haplotypecaller1.g.vcf 
 　　-R ${ref_fasta} 
 　　-O ${sample1}.haplotypecaller.vcf
