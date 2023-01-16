@@ -15,6 +15,7 @@ ${ref_fasta} : Specify the location where the reference fasta　(ex ./input/Homo
 ${read1_fastq},{read2_fastq} : Specify the location where the read fastq (ex ./input/read1_fastq)
 
 ・Sort the sam file using samtools and create a bam file.
+
 >samtools sort -@4 ${sample1}.sam > ${sample1}.sort.bam
  
 >samtools index ${sample1}.sort.bam
@@ -27,14 +28,20 @@ ${read1_fastq},{read2_fastq} : Specify the location where the read fastq (ex ./i
 -I : input file
 -O : output 
 
+
 ・Mutation detection using GATK HaplotypeCaller
 >gatk HaplotypeCaller -R ${ref_fasta} -I ${sample1}MarkDup.bam -O {sample1}.output.g.vcf.gz -ERC GVCF
+
 Specify the name of the input and output file
+
 
 ・gVCF to vcf
 >gatk GenotypeGVCFs --variant ${sample1}.haplotypecaller1.g.vcf -R　${ref_fasta} -O ${sample1}.haplotypecaller.vcf
+
 Specify the name of the input and output file
+
 ※For multiple samples
+
 >gatk GenotypeGVCFs \
 　　--variant haplotypecaller1.g.vcf \
 　　--variant haplotypecaller2.g.vcf \
