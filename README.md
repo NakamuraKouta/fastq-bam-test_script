@@ -10,7 +10,8 @@ The gVCF contains records for all positions with and without mutation detection.
 >bwa mem -R "@RG\tID:L\tSM:"${sample1}"\tPL:illumina\tLB:lib1\tPU:unit1" -t 16\ 
 > -M ${ref_fasta}
 >   ${read1_fastq} 
->   ${read2_fastq}>${sample1}.sam
+>   ${read2_fastq}
+>   >${sample1}.sam
  
 ${sample1} : sample name
 ${ref_fasta} : Specify the location where the reference fasta　(ex ./input/Homo_sapiens_assembly38.fasta)
