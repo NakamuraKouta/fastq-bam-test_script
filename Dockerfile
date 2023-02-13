@@ -19,3 +19,13 @@ ENV PATH "$PATH:/gatk-4.1.11.0"
 
 # Set the default command to run when the container starts
 CMD ["/bin/bash"]
+
+
+
+
+
+#################################################
+docker build -t my_bwa_samtools_gatk .
+
+docker run -it my_bwa_samtools_gatk
+#################################################
